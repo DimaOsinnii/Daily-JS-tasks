@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function sum(g) {
+        let Sum = 0;
+        let fn =  function (i) {
+            if(i === undefined) {
+                return Sum;
+            }
+            Sum += i;
+            return fn;
+        };
+        fn.toString = function () {
+            return Sum;
+        };
+        return fn(g)
+    }
+    console.log(sum(1)(2));
+</script>
+</body>
+</html>
