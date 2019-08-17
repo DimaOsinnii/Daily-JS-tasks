@@ -15,6 +15,7 @@ calculator.read();
 alert('Sum' + ' ' + '=' + ' ' + calculator.sum());
 alert('Multiply' + ' ' + '=' + ' ' + calculator.mul());*/
 
+/*
 function Calculator() {
     this.read = function () {
         this.firstNumber = +prompt('Entry first number');
@@ -34,3 +35,10 @@ let calculator = new Calculator();
 calculator.read();
 alert( "Sum=" + calculator.sum() );
 alert( "Mul=" + calculator.mul() );
+*/
+
+Calculator = () => {
+    this.calculate = (string) => {
+        
+    }
+};

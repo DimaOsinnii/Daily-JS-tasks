@@ -23,4 +23,12 @@ function filterRangeInPlace(arr, from, to) {
 filterRangeInPlace(arr, 1, 4,);
 console.log(arr);
 
-//
+//Copy and sort array
+let array = ["HTML", "JavaScript", "CSS"];
+let sorted = copySorted(array);
+console.log(array);
+console.log(sorted);
+
+function copySorted(arr) {
+    return arr.slice().sort();
+}
