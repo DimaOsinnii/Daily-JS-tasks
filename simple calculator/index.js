@@ -37,8 +37,29 @@ alert( "Sum=" + calculator.sum() );
 alert( "Mul=" + calculator.mul() );
 */
 
-Calculator = () => {
-    this.calculate = (string) => {
-        
-    }
-};
+
+function Calculator() {
+    let methods = {
+        '+': (a, b) => a + b,
+    };
+    this.calculate = function (string) {
+        let split = string.split(' '),
+            a = +split[0],
+            symbol = split[1],
+            b = +split[2]
+
+        if (!methods[symbol] || isNaN(a) || isNaN(b)) {
+            return NaN;
+        }
+        return methods[symbol](a, b);
+    };
+
+    this.addMethod = function (name, func) {
+        methods[name] = func;
+    };
+}
+
+let calc = new Calculator;
+calc.addMethod('^', (a, b) => a **b);
+calc.addMethod('-', (a, b) => a - b);
+console.log(calc.calculate('10 - 100'));
