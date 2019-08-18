@@ -133,3 +133,52 @@ function aclean(arr) {
     return Array.from(map.values());
 }
 console.log(aclean(mass));
+
+//WeakSet practice
+
+let messagesS = [
+    {text: "Hello", from: "John"},
+    {text: "How goes?", from: "John"},
+    {text: "See you soon", from: "Alice"}
+];
+
+let readMessages = new WeakSet();
+
+readMessages.add(messagesS[0]);
+readMessages.add(messagesS[1]);
+readMessages.add(messagesS[2]);
+
+alert("Read message 0: " + readMessages.has(messagesS[0]));
+readMessages.add(messagesS[2]);
+
+
+//Sum obj value
+
+let salaries = {
+    "John": 100,
+    "Pete": 300,
+    "Mary": 250
+};
+
+function sumSalaries() {
+    let sum = 0;
+    for (let salary of Object.values(salaries)) {
+        sum += salary;
+    }
+    if (Object.values(salaries)) return sum;
+    return 0
+}
+alert(sumSalaries(salaries));
+
+
+//counter value
+let own = {
+    name: 'John',
+    age: 30
+};
+
+function count (obj) {
+    return Object.entries(obj).length;
+}
+
+alert( count(own) );
