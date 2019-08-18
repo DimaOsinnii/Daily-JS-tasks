@@ -67,23 +67,23 @@ console.log(usersMapped);
 
 //Sort by value
 
-let vas = { name: "Вася", age: 25 };
-let pet = { name: "Петя", age: 30 };
-let mas = { name: "Маша", age: 28 };
+let vas = {name: "Вася", age: 25};
+let pet = {name: "Петя", age: 30};
+let mas = {name: "Маша", age: 28};
 
-let owners = [ vasya, petya, masha ];
+let owners = [vasya, petya, masha];
 
 function sortByAge(arr) {
     return arr.sort((a, b) => {
         return a.age - b.age;
     });
 }
+
 sortByAge(owners);
 console.log(owners);
 
 
 //unique value
-
 let strings = ["кришна", "кришна", "харе", "харе",
     "харе", "харе", "кришна", "кришна", ":-O"
 ];
@@ -93,10 +93,43 @@ alert(unique(strings));
 function unique(arr) {
     let result = [];
 
-    for(let str of arr) {
+    for (let str of arr) {
         if (!result.includes(str)) {
             result.push(str);
         }
     }
     return result;
 }
+
+//unique value with using Set
+function uni(arr) {
+    let set = new Set();
+    let newArray  = [];
+    for (let value of arr) set.add(value);
+    set.forEach((item) => newArray.push(item));
+    return newArray;
+}
+
+
+let values = ["Hare", "Krishna", "Hare", "Krishna",
+    "Krishna", "Krishna", "Hare", "Hare", ":-O"
+];
+
+console.log(uni(values));
+/*function unique(arr) {
+    return Array.from(new Set(arr));
+}*/
+
+//Filter anagrams
+
+let mass = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+function aclean(arr) {
+    let map = new Map();
+    for(let word of arr) {
+        let sorted = word.toLowerCase().split("").sort().join("");
+        map.set(sorted, word);
+    }
+    return Array.from(map.values());
+}
+console.log(aclean(mass));
